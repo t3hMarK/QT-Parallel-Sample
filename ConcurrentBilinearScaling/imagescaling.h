@@ -44,6 +44,12 @@
 #include <QtConcurrent>
 #include <QRgb>
 
+struct scalingDto {
+    unsigned int* imgArray;
+    QSize size;
+    float scalingFactor;
+};
+
 class Images : public QWidget {
 Q_OBJECT
 
@@ -53,17 +59,20 @@ public:
 
 public Q_SLOTS:
     void open();
-    void showImage(int num);
+    void showImage();
     void finished();
 
 private:
+    QTime timer;
     QPushButton *openButton;
     QPushButton *cancelButton;
     QPushButton *pauseButton;
+    QLineEdit *scaleFactorLineEdit;
+    QLabel *speedup;
     QVBoxLayout *mainLayout;
     QList<QLabel*> labels;
     QGridLayout *imagesLayout;
-    QFutureWatcher<QImage> *imageScaling;
+    QFutureWatcher<QVector<scalingDto> > *imageScaling;
 };
 
 #endif // IMAGESCALING_H

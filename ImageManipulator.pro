@@ -16,7 +16,8 @@ HEADERS += \
     manipulator/bilinearscalingmanipulator.h \
     manipulator/image.h \
     manipulator/imagebuilder.h \
-    manipulator/imagemanipulator.h
+    manipulator/imagemanipulator.h \
+    gui/manipulationform.h
 
 SOURCES += \
     gui/imagescaling.cpp \
@@ -24,4 +25,8 @@ SOURCES += \
     manipulator/image.cpp \
     manipulator/imagebuilder.cpp \
     manipulator/imagemanipulator.cpp \
-    main.cpp
+    main.cpp \
+    gui/manipulationform.cpp
+
+FORMS += \
+    gui/manipulationform.ui

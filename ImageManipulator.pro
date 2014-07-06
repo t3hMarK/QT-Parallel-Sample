@@ -11,10 +11,17 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ImageManipulator
 TEMPLATE = app
 
-SOURCES +=  main.cpp\
-            image.cpp\
-            imagescaling.cpp
+HEADERS += \
+    gui/imagescaling.h \
+    manipulator/bilinearscalingmanipulator.h \
+    manipulator/image.h \
+    manipulator/imagebuilder.h \
+    manipulator/imagemanipulator.h
 
-HEADERS +=  image.h\
-            imagescaling.h\
-
+SOURCES += \
+    main.cpp\
+    gui/imagescaling.cpp \
+    manipulator/bilinearscalingmanipulator.cpp \
+    manipulator/image.cpp \
+    manipulator/imagebuilder.cpp \
+    manipulator/imagemanipulator.cpp

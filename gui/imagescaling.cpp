@@ -40,7 +40,7 @@
 #include "imagescaling.h"
 #include "math.h"
 
-const float SCALING_FACTOR = 0.5f;
+const float SCALING_FACTOR = 1.5f;
 
 /**
  * @brief Images::Images

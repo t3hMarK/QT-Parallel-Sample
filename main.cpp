@@ -1,4 +1,4 @@
-#include "imagescaling.h"
+#include "gui/imagescaling.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

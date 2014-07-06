@@ -40,6 +40,8 @@
 #include "imagescaling.h"
 #include "math.h"
 
+const float SCALING_FACTOR = 0.5f;
+
 /**
  * @brief Images::Images
  * @param parent
@@ -213,7 +215,6 @@ void Images::open() {
     qDeleteAll(labels);
     labels.clear();
 
-    int singleThreadTime = 0;
     timer.start();
     unsigned int* imgArray = new unsigned int[image.size().width() * image.size().height()];
     for(int i = 0; i < image.size().height(); i++){
@@ -224,7 +225,7 @@ void Images::open() {
     scalingDto dto;
     dto.imgArray = imgArray;
     dto.size = image.size();
-    dto.scalingFactor = 0.5f;
+    dto.scalingFactor = SCALING_FACTOR;
     scalingDto scaledDto = scale(dto);
     singleThreadTime = timer.elapsed();
     qDebug() << "SingleThread " << singleThreadTime;
@@ -232,7 +233,7 @@ void Images::open() {
 
     // Use mapped to run the thread safe scale function on the files.
     timer.start();
-    imageScaling->setFuture(QtConcurrent::mappedReduced(map(image, 0.5f), scale, assemble, QtConcurrent::OrderedReduce));
+    imageScaling->setFuture(QtConcurrent::mappedReduced(map(image, SCALING_FACTOR), scale, assemble, QtConcurrent::OrderedReduce));
 
     openButton->setEnabled(false);
     cancelButton->setEnabled(true);
@@ -241,8 +242,9 @@ void Images::open() {
 
 void Images::showImage() {
 
-    int concurrentTime = timer.elapsed();
+    concurrentTime = timer.elapsed();
     qDebug() << "MapReduce " << concurrentTime;
+    qDebug() << "speedup of " << (float)singleThreadTime / (float)concurrentTime;
 
     //construct QImage from results
     QVector<scalingDto> imageFragments = imageScaling->result();

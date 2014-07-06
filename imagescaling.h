@@ -64,6 +64,8 @@ public Q_SLOTS:
 
 private:
     QTime timer;
+    int singleThreadTime;
+    int concurrentTime;
     QPushButton *openButton;
     QPushButton *cancelButton;
     QPushButton *pauseButton;

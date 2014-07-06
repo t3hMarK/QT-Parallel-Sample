@@ -19,9 +19,9 @@ HEADERS += \
     manipulator/imagemanipulator.h
 
 SOURCES += \
-    main.cpp\
     gui/imagescaling.cpp \
     manipulator/bilinearscalingmanipulator.cpp \
     manipulator/image.cpp \
     manipulator/imagebuilder.cpp \
-    manipulator/imagemanipulator.cpp
+    manipulator/imagemanipulator.cpp \
+    main.cpp

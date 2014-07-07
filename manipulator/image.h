@@ -4,7 +4,11 @@
 class Image
 {
     public:
-        Image();
+        Image(int* aRgbBuffer, int width, int height);
+        ~Image();
+        const int* aRgbBuffer;
+        int width;
+        int height;
 };
 
 #endif // IMAGE_H

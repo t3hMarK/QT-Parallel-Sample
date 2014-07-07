@@ -19,9 +19,13 @@ class ManipulationForm : public QWidget
 
     private slots:
         void on_openButton_clicked();
+        void on_CancelButton_clicked();
+        void on_startButton_clicked();
+        void on_pauseResumeButton_clicked();
 
     private:
         Ui::ManipulationForm *ui;
+
 };
 
 #endif // MANIPULATIONFORM_H

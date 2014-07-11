@@ -15,18 +15,18 @@ HEADERS += \
     gui/imagescaling.h \
     manipulator/bilinearscalingmanipulator.h \
     manipulator/image.h \
-    manipulator/imagebuilder.h \
     manipulator/imagemanipulator.h \
-    gui/manipulationform.h
+    gui/manipulationform.h \
+    manipulator/imageQImageConverter.h
 
 SOURCES += \
     gui/imagescaling.cpp \
     manipulator/bilinearscalingmanipulator.cpp \
     manipulator/image.cpp \
-    manipulator/imagebuilder.cpp \
     manipulator/imagemanipulator.cpp \
     main.cpp \
-    gui/manipulationform.cpp
+    gui/manipulationform.cpp \
+    manipulator/imageQImageConverter.cpp
 
 FORMS += \
     gui/manipulationform.ui
